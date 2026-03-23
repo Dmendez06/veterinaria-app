@@ -7,6 +7,7 @@ function Navbar({ role }) {
 
       {role === "dueno" && (
         <>
+          <Link to="/">Inicio</Link> |{" "}
           <Link to="/dueno/mascotas">Mascotas</Link> |{" "}
           <Link to="/dueno/historial">Historial</Link> |{" "}
           <Link to="/dueno/seguimiento">Seguimiento</Link>
@@ -15,6 +16,7 @@ function Navbar({ role }) {
 
       {role === "veterinario" && (
         <>
+          <Link to="/">Inicio</Link> |{" "}
           <Link to="/veterinario/mascotas">Pacientes</Link> |{" "}
           <Link to="/veterinario/historial">Historial</Link> |{" "}
           <Link to="/veterinario/seguimiento">Seguimiento</Link>
