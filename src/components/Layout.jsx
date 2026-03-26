@@ -7,8 +7,8 @@ function Layout({ role, children, showBack = false }) {
   return (
     <div>
       <Navbar role={role} />
-
-      {showBack && (
+      
+      {showBack &&  (
         <button onClick={() => navigate(-1)} style={{ margin: "10px" }}>
           ← Volver
         </button>

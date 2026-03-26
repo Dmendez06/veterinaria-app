@@ -1,20 +1,21 @@
 import { Link } from "react-router-dom";
+import "../styles/pages/Home.css";
 
 function Home() {
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
+    <div className="home-container">
       <h1>Sistema Veterinario</h1>
       <p>Seleccione el tipo de usuario</p>
 
-      <div style={{ marginTop: "20px" }}>
+      <div className="home-buttons">
         <Link to="/dueno/mascotas">
-          <button style={{ marginRight: "10px" }}>
+          <button className="home-button">
             Dueño de Mascota
           </button>
         </Link>
 
         <Link to="/veterinario/mascotas">
-          <button>
+          <button className="home-button">
             Veterinario
           </button>
         </Link>

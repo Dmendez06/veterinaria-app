@@ -1,0 +1,161 @@
+/* =========================================
+   Sistema Veterinario — Navbar
+   Consistent with Home.css & mascotas.css
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --clr-bg:            #f5f0e8;
+  --clr-surface:       #fffdf8;
+  --clr-primary:       #2d6a4f;
+  --clr-primary-light: #52b788;
+  --clr-primary-pale:  #d8efe6;
+  --clr-accent:        #d4a853;
+  --clr-text:          #1e2d24;
+  --clr-muted:         #6b7c72;
+  --clr-border:        #d8cfc0;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', sans-serif;
+}
+
+/* ---------- Nav wrapper ---------- */
+.navbar {
+  background: var(--clr-surface);
+  border-bottom: 2px solid var(--clr-border);
+  box-shadow: 0 2px 12px rgba(45, 106, 79, 0.07);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  height: 62px;
+  font-family: var(--font-body);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* ---------- Brand / Menu label ---------- */
+.navbar-brand {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--clr-primary);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+
+  /* Gold left accent bar */
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--clr-accent);
+}
+
+/* ---------- Links group ---------- */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+/* ---------- Individual link ---------- */
+.navbar-links a {
+  position: relative;
+  text-decoration: none;
+  color: var(--clr-muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+/* Underline slide-in effect */
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0.85rem;
+  right: 0.85rem;
+  height: 2px;
+  background: var(--clr-primary-light);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-links a:hover {
+  color: var(--clr-primary);
+  background: var(--clr-primary-pale);
+}
+
+.navbar-links a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Active link (react-router adds .active class) */
+.navbar-links a.active {
+  color: var(--clr-primary);
+  background: var(--clr-primary-pale);
+  font-weight: 600;
+}
+
+.navbar-links a.active::after {
+  transform: scaleX(1);
+  background: var(--clr-primary);
+}
+
+/* ---------- Role badge ---------- */
+.navbar-role {
+  margin-left: auto;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.85rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.navbar-role.dueno {
+  background: var(--clr-primary-pale);
+  color: var(--clr-primary);
+  border: 1.5px solid var(--clr-primary-light);
+}
+
+.navbar-role.veterinario {
+  background: #fdf3dc;
+  color: #7a5c1e;
+  border: 1.5px solid var(--clr-accent);
+}
+
+/* ============================================
+   RESPONSIVE — hamburger-free, collapses links
+   ============================================ */
+@media (max-width: 600px) {
+  .navbar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 0.75rem 1.25rem;
+    gap: 0.5rem 1rem;
+  }
+
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .navbar-links {
+    width: 100%;
+    gap: 0.15rem;
+  }
+
+  .navbar-links a {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.65rem;
+  }
+
+  .navbar-role {
+    margin-left: 0;
+  }
+}

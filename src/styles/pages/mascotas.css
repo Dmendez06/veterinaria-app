@@ -1,0 +1,308 @@
+  /* =========================================
+    Sistema Veterinario — Mis Mascotas
+    Aesthetic: Organic/Natural + Refined Warm
+    (consistent with Home.css)
+    ========================================= */
+
+
+
+  /* ---------- Root (en caso de usarse standalone) ---------- */
+
+
+  /* ---------- Page Container ---------- */
+  .dueno-mascotas-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+    font-family: var(--font-body);
+    color: var(--clr-text);
+    animation: fadeUp 0.5s ease both;
+  }
+
+  /* ---------- Page Title ---------- */
+  .dueno-mascotas-container > h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 700;
+    color: var(--clr-primary);
+    margin-bottom: 2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 3px solid var(--clr-accent);
+    display: inline-block;
+    letter-spacing: -0.02em;
+  }
+
+  /* ============================================
+    FORM
+    ============================================ */
+  .mascotas-form {
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem 2rem 1.75rem;
+    box-shadow: var(--shadow-form);
+    margin-bottom: 2.5rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem 1.2rem;
+    animation: fadeUp 0.5s 0.1s ease both;
+  }
+
+  /* Full-width items */
+  .mascotas-form input[type="file"],
+  .mascotas-form .preview-img,
+  .mascotas-form button {
+    grid-column: 1 / -1;
+  }
+
+  /* ---------- Inputs ---------- */
+  .mascotas-form input[type="text"],
+  .mascotas-form input[type="number"],
+  .mascotas-form input:not([type="file"]):not([type="submit"]) {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--clr-bg);
+    border: 1.5px solid var(--clr-border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--clr-text);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .mascotas-form input:not([type="file"]):not([type="submit"])::placeholder {
+    color: var(--clr-muted);
+    font-weight: 300;
+  }
+
+  .mascotas-form input:not([type="file"]):not([type="submit"]):focus {
+    border-color: var(--clr-primary-light);
+    background: var(--clr-surface);
+    box-shadow: 0 0 0 3px rgba(82, 183, 136, 0.15);
+  }
+
+  /* ---------- File Input ---------- */
+  .mascotas-form input[type="file"] {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--clr-muted);
+    padding: 0.6rem 0;
+    cursor: pointer;
+  }
+
+  .mascotas-form input[type="file"]::file-selector-button {
+    padding: 0.45rem 1rem;
+    background: var(--clr-primary-pale);
+    color: var(--clr-primary);
+    border: 1.5px solid var(--clr-primary-light);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-right: 0.75rem;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .mascotas-form input[type="file"]::file-selector-button:hover {
+    background: var(--clr-primary);
+    color: #fff;
+  }
+
+  /* ---------- Image Preview ---------- */
+  .preview-img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    border: 2.5px solid var(--clr-primary-light);
+    box-shadow: 0 2px 10px rgba(45, 106, 79, 0.15);
+    justify-self: start;
+    animation: popIn 0.3s ease both;
+  }
+
+  /* ---------- Submit Button ---------- */
+  .mascotas-form button[type="submit"] {
+    padding: 0.85rem 1.5rem;
+    background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-light));
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(45, 106, 79, 0.25);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+  }
+
+  .mascotas-form button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(45, 106, 79, 0.30);
+  }
+
+  .mascotas-form button[type="submit"]:active {
+    transform: scale(0.97);
+  }
+
+  /* ---------- Cancel Button ---------- */
+  .mascotas-form button.cancel {
+    padding: 0.75rem 1.5rem;
+    background: var(--clr-surface-2);
+    color: var(--clr-muted);
+    border: 1.5px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+
+  .mascotas-form button.cancel:hover {
+    background: var(--clr-danger-pale);
+    color: var(--clr-danger);
+    border-color: var(--clr-danger);
+  }
+
+  /* ============================================
+    CARDS GRID
+    ============================================ */
+  .mascotas-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.4rem;
+  }
+
+  /* ---------- Individual Card ---------- */
+  .mascota-card {
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 1.25rem 1.25rem;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.4rem;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    animation: fadeUp 0.4s ease both;
+  }
+
+  .mascota-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lift);
+  }
+
+  /* ---------- Card Photo ---------- */
+  .mascota-card > img {
+    width: 88px;
+    height: 88px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--clr-primary-light);
+    box-shadow: 0 2px 12px rgba(45, 106, 79, 0.18);
+    margin-bottom: 0.5rem;
+  }
+
+  /* ---------- Card Name ---------- */
+  .mascota-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--clr-primary);
+    letter-spacing: -0.01em;
+  }
+
+  /* ---------- Card Details ---------- */
+  .mascota-card p {
+    font-size: 0.875rem;
+    color: var(--clr-muted);
+    line-height: 1.5;
+  }
+
+  .mascota-card p strong {
+    color: var(--clr-text);
+    font-weight: 500;
+  }
+
+  /* ---------- Card Actions ---------- */
+  .mascota-actions {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.85rem;
+    width: 100%;
+  }
+
+  .mascota-actions button {
+    flex: 1;
+    padding: 0.55rem 0.5rem;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  }
+
+  .mascota-actions button.edit {
+    background: var(--clr-accent-pale);
+    color: #7a5c1e;
+    border-color: var(--clr-accent);
+  }
+
+  .mascota-actions button.edit:hover {
+    background: var(--clr-accent);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .mascota-actions button.delete {
+    background: var(--clr-danger-pale);
+    color: var(--clr-danger);
+    border-color: #e8b4b0;
+  }
+
+  .mascota-actions button.delete:hover {
+    background: var(--clr-danger);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  /* ============================================
+    ANIMATIONS
+    ============================================ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.85); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  /* ============================================
+    RESPONSIVE
+    ============================================ */
+  @media (max-width: 600px) {
+    .mascotas-form {
+      grid-template-columns: 1fr;
+      padding: 1.5rem 1.25rem;
+    }
+
+    .mascotas-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .mascotas-list {
+      grid-template-columns: 1fr;
+    }
+  }

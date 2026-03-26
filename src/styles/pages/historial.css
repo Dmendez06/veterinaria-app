@@ -1,0 +1,182 @@
+
+
+/* ---------- Contenedor ---------- */
+.historial-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  font-family: var(--font-body);
+  color: var(--clr-text);
+  animation: fadeUp 0.5s ease both;
+}
+
+/* ---------- Título ---------- */
+.historial-container h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  color: var(--clr-primary);
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 3px solid var(--clr-accent);
+  display: inline-block;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- Filtro de mascota ---------- */
+.filtro-mascota {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding: 0.85rem 1.25rem;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  width: fit-content;
+  animation: fadeUp 0.5s 0.1s ease both;
+}
+
+.filtro-mascota label {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--clr-muted);
+}
+
+.filtro-mascota select {
+  padding: 0.45rem 0.85rem;
+  background: var(--clr-bg);
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--clr-text);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filtro-mascota select:focus {
+  border-color: var(--clr-primary-light);
+  box-shadow: 0 0 0 3px rgba(82, 183, 136, 0.15);
+}
+
+/* ---------- Grid de secciones ---------- */
+.grid-historial {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  animation: fadeUp 0.5s 0.15s ease both;
+}
+
+/* ---------- Sección (vacunas / tratamientos / citas) ---------- */
+.seccion-vacunas,
+.seccion-tratamientos,
+.seccion-citas {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.seccion-vacunas h3,
+.seccion-tratamientos h3,
+.seccion-citas h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--clr-primary);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--clr-primary-pale);
+  margin-bottom: 0.25rem;
+}
+
+/* Acento de color por sección */
+.seccion-vacunas {
+  border-top: 3px solid var(--clr-primary-light);
+}
+.seccion-tratamientos {
+  border-top: 3px solid var(--clr-accent);
+}
+.seccion-citas {
+  border-top: 3px solid #9c88d4;
+}
+
+/* ---------- Card de registro ---------- */
+.card-registro {
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1.1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-registro:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+}
+
+.card-registro p {
+  font-size: 0.875rem;
+  color: var(--clr-text);
+  line-height: 1.5;
+  margin-bottom: 0.2rem;
+}
+
+.card-registro small {
+  font-size: 0.8rem;
+  color: var(--clr-muted);
+  font-style: italic;
+}
+
+.card-registro .proxima {
+  color: var(--clr-primary);
+  font-weight: 500;
+}
+
+/* ---------- Badge estado (citas) ---------- */
+.badge-estado {
+  display: inline-block;
+  margin-top: 0.4rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.badge-estado[class*="Programada"],
+.badge-estado:not([data-estado]) {
+  background: var(--clr-primary-pale);
+  color: var(--clr-primary);
+  border: 1.5px solid var(--clr-primary-light);
+}
+
+.badge-estado[class*="Pendiente"] {
+  background: var(--clr-accent-pale);
+  color: #7a5c1e;
+  border: 1.5px solid var(--clr-accent);
+}
+
+/* ---------- Animación ---------- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .grid-historial {
+    grid-template-columns: 1fr;
+  }
+
+  .filtro-mascota {
+    width: 100%;
+  }
+}

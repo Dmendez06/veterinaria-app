@@ -1,27 +1,34 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "../styles/components/Navbar.css";
 
 function Navbar({ role }) {
   return (
-    <nav style={{ marginBottom: "20px", borderBottom: "1px solid #ccc", padding: "10px" }}>
-      <h3>Menú</h3>
+    <nav className="navbar">
+      <span className="navbar-brand">Menú</span>
 
-      {role === "dueno" && (
-        <>
-          <Link to="/">Inicio</Link> |{" "}
-          <Link to="/dueno/mascotas">Mascotas</Link> |{" "}
-          <Link to="/dueno/historial">Historial</Link> |{" "}
-          <Link to="/dueno/seguimiento">Seguimiento</Link>
-        </>
-      )}
+      <div className="navbar-links">
+        {role === "dueno" && (
+          <>
+            <NavLink to="/">Inicio</NavLink>
+            <NavLink to="/dueno/mascotas">Mascotas</NavLink>
+            <NavLink to="/dueno/historial">Historial</NavLink>
+            <NavLink to="/dueno/seguimiento">Seguimiento</NavLink>
+          </>
+        )}
 
-      {role === "veterinario" && (
-        <>
-          <Link to="/">Inicio</Link> |{" "}
-          <Link to="/veterinario/mascotas">Pacientes</Link> |{" "}
-          <Link to="/veterinario/historial">Historial</Link> |{" "}
-          <Link to="/veterinario/seguimiento">Seguimiento</Link>
-        </>
-      )}
+        {role === "veterinario" && (
+          <>
+            <NavLink to="/">Inicio</NavLink>
+            <NavLink to="/veterinario/mascotas">Pacientes</NavLink>
+            <NavLink to="/veterinario/historial">Historial</NavLink>
+            <NavLink to="/veterinario/seguimiento">Seguimiento</NavLink>
+          </>
+        )}
+      </div>
+
+      <span className={`navbar-role ${role}`}>
+        {role === "dueno" ? "Dueño" : "Veterinario"}
+      </span>
     </nav>
   );
 }

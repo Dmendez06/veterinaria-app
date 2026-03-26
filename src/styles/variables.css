@@ -1,0 +1,39 @@
+/* =========================================
+   Sistema Veterinario — Variables Globales
+   Aesthetic: Organic/Natural + Refined Warm
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Paleta */
+  --clr-bg:            #f5f0e8;
+  --clr-surface:       #fffdf8;
+  --clr-surface-2:     #f0ebe0;
+  --clr-primary:       #2d6a4f;
+  --clr-primary-light: #52b788;
+  --clr-primary-pale:  #d8efe6;
+  --clr-accent:        #d4a853;
+  --clr-accent-pale:   #fdf3dc;
+  --clr-danger:        #c0392b;
+  --clr-danger-pale:   #fdecea;
+  --clr-text:          #1e2d24;
+  --clr-muted:         #6b7c72;
+  --clr-border:        #d8cfc0;
+
+  /* Tipografía */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* Radios */
+  --radius-sm:  6px;
+  --radius-md:  14px;
+  --radius-lg:  24px;
+  --radius-xl:  36px;
+
+  /* Sombras */
+  --shadow-soft: 0 4px 24px rgba(45, 106, 79, 0.10);
+  --shadow-card: 0 2px 16px rgba(45, 106, 79, 0.08);
+  --shadow-lift: 0 8px 32px rgba(45, 106, 79, 0.15);
+  --shadow-form: 0 4px 24px rgba(45, 106, 79, 0.10);
+}
