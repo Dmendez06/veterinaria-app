@@ -8,7 +8,6 @@ function VetHistorial() {
     { id: 2, nombre: "Nami" }
   ]);
 
-  // Datos de prueba iniciales para ver el diseño
   const [registros, setRegistros] = useState([
     {
       id: 1,
@@ -60,6 +59,9 @@ function VetHistorial() {
 
   const [editandoId, setEditandoId] = useState(null);
 
+  // --- ESTADO PARA EL MODAL DE ELIMINAR ---
+  const [modalEliminar, setModalEliminar] = useState({ abierto: false, id: null });
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setForm({ 
@@ -93,10 +95,17 @@ function VetHistorial() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const eliminar = (id) => {
-    if (window.confirm("¿Desea eliminar este registro del historial?")) {
-      setRegistros(registros.filter(r => r.id !== id));
-    }
+  const abrirModal = (id) => {
+    setModalEliminar({ abierto: true, id });
+  };
+
+  const cerrarModal = () => {
+    setModalEliminar({ abierto: false, id: null });
+  };
+
+  const confirmarEliminar = () => {
+    setRegistros(registros.filter(r => r.id !== modalEliminar.id));
+    cerrarModal();
   };
 
   const limpiar = () => {
@@ -208,11 +217,31 @@ function VetHistorial() {
 
               <div className="acciones-registro">
                 <button onClick={() => editar(r)}>Editar</button>
-                <button onClick={() => eliminar(r.id)}>Eliminar</button>
+                <button onClick={() => abrirModal(r.id)}>Eliminar</button>
               </div>
             </div>
           ))}
         </div>
+
+        {/* MODAL CORREGIDO */}
+        {modalEliminar.abierto && (
+          <div className="modal-overlay">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h3>¿Eliminar registro?</h3>
+              </div>
+              <p>Esta acción no se puede deshacer.</p>
+              <div className="modal-footer">
+                <button className="btn-cancelar" onClick={cerrarModal}>
+                  Cancelar
+                </button>
+                <button className="btn-confirmar-borrado" onClick={confirmarEliminar}>
+                  Eliminar
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </Layout>
   );

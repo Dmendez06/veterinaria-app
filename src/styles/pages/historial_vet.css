@@ -100,6 +100,96 @@
   box-shadow: 0 8px 28px rgba(45, 106, 79, 0.30);
 }
 
+/* --- Estilos para el Modal de Confirmación --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* --- CAMBIO MÍNIMO AQUÍ: Fondo transparente y sin desenfoque --- */
+  background: transparent; 
+  backdrop-filter: none;
+  /* ----------------------------------------------------------------- */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Aumentado para asegurar que esté encima */
+  padding: 1rem;
+  pointer-events: none; /* Permite clicks en el fondo si el modal está abierto */
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  max-width: 450px;
+  width: 100%;
+  /* Mantenemos tu sombra original pero la intensificamos un poco para resaltar */
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3); 
+  animation: scaleIn 0.2s ease-out;
+  pointer-events: auto; /* Reactiva los clicks dentro del cuadro blanco */
+  border: 1px solid var(--clr-border); /* Añadido borde sutil para definirlo mejor */
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  color: var(--clr-primary);
+  font-family: var(--font-display);
+  border-bottom: 2px solid var(--clr-primary-pale);
+  padding-bottom: 0.5rem;
+}
+
+.modal-content p {
+  color: #555;
+  margin: 1.5rem 0;
+  line-height: 1.5;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+/* Botones del Modal (Mismo estilo original) */
+.btn-cancelar {
+  padding: 0.7rem 1.2rem;
+  border: 1px solid #ddd;
+  background: #f5f5f5;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.btn-cancelar:hover {
+  background: #eee;
+}
+
+.btn-confirmar-borrado {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  background: #d00000; /* Rojo vibrante */
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.btn-confirmar-borrado:hover {
+  background: #900000;
+  transform: translateY(-2px);
+}
+
+/* Animación de entrada (Mismo original) */
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
 /* ---------- Sección de registros ---------- */
 .vet-historial-container h3 {
   font-family: var(--font-display);
@@ -111,7 +201,7 @@
   border-bottom: 2px solid var(--clr-primary-pale);
 }
 
-/* ---------- Card de registro individual ---------- */
+/* ---------- Card de registro individual (Mismo original) ---------- */
 .vet-historial-container > div {
   background: var(--clr-surface);
   border: 1px solid var(--clr-border);
@@ -184,15 +274,63 @@
   transform: translateY(-1px);
 }
 
-/* ---------- Animación ---------- */
+/* ---------- Animación (Mismo original) ---------- */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- Responsive ---------- */
+/* ---------- Responsive (Mismo original con ajuste mínimo) ---------- */
 @media (max-width: 600px) {
-  .vet-historial-container form {
-    padding: 1.25rem 1rem;
+  .vet-historial-container h2 {
+    font-size: 1.6rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .vet-historial-container form button[type="submit"] {
+    align-self: stretch;
+  }
+
+  .vet-historial-container > div {
+    padding: 1rem;
+  }
+
+  .vet-historial-container > div button {
+    width: calc(50% - 0.5rem);
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .vet-historial-container > div button:first-of-type {
+    margin-right: 0.5rem;
+  }
+
+  /* Ajuste responsive del modal */
+  .modal-content {
+    padding: 1.5rem;
+  }
+  .modal-footer {
+    flex-direction: column-reverse;
+  }
+  .btn-cancelar, .btn-confirmar-borrado {
+    width: 100%;
+    text-align: center;
   }
 }
+.modal-overlay {
+  background: transparent;
+  pointer-events: none;
+}
+
+.modal-content {
+  pointer-events: auto;
+}
+/* ===== FIX MODAL ===== */
+.modal-overlay {
+  pointer-events: none;
+}
+
+.modal-content {
+  pointer-events: auto;
+} 
