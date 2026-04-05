@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import "../styles/components/Navbar.css";
+import "../styles/components/navbar.css";
 
 function Navbar({ role }) {
   return (
